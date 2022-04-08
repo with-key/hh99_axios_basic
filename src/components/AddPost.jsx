@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import api from "../api";
+import apis from "../api";
 
 const AddPost = ({ setPosts, posts }) => {
   // Network 요청에 대한 상태관리
@@ -17,10 +17,10 @@ const AddPost = ({ setPosts, posts }) => {
     try {
       setIsLoading(true);
       // 일반적인 Axios 사용 방식
-      const { data } = await axios.post("http://localhost:3001/posts", post);
+      // const { data } = await axios.post("http://localhost:3001/posts", post);
 
       // Axios Instance를 이용하는 방식 👇 -- 둘중에 편한 방식으로 사용하세요.
-      // const { data } = await api.post("/posts", post);
+      const { data } = await apis.getPosts();
 
       // 서버에서 가져온 post를 posts에 넣어야 합니다.
       // 만약 넣지 않으면 화면상에서 새롭게 추가한 post를 볼 수 없겠죠?
